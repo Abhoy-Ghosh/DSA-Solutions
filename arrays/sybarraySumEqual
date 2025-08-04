@@ -1,0 +1,35 @@
+
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        unordered_map<int, int> subNum;
+        subNum[0] = 1;
+        int total = 0, count = 0;
+
+        for (int n : nums) {
+            total += n;
+
+            if (subNum.find(total - k) != subNum.end()) {
+                count += subNum[total - k];
+            }
+
+            subNum[total]++;
+        }
+
+        return count;
+    }
+};
+
+int main() {
+    Solution sol;
+    vector<int> nums = {1, 2, 3};
+    int k = 3;
+    cout << "Number of subarrays with sum " << k << " is: " << sol.subarraySum(nums, k) << endl;
+    return 0;
+}
+
