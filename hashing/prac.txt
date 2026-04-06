@@ -1,2 +1,5 @@
 globally array can go upto 1e7(10^7) 
 but in main it can only give to 1e6 range..yet it give segmentation fault
+
+
+character hashing
